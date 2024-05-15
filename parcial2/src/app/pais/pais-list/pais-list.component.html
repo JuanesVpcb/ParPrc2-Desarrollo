@@ -1,6 +1,6 @@
 <div class="row container-fluid" *ngIf="selected">
     <app-pais-detail [selectedPais]="selectedPais"></app-pais-detail>
-  </div>
+</div>
 
 <table class="table table-striped table-dark">
     <thead>
@@ -11,10 +11,18 @@
             <th scope="col">Capital</th>
         </tr>
     </thead>
-    <tbody *ngFor="let pais of paises">
-        <tr class="table-primary text-dark" (click)="onSelected(pais)">{{ pais.id }}</tr>
-        <tr class="table-primary text-dark" (click)="onSelected(pais)">{{ pais.name }}</tr>
-        <tr class="table-primary text-dark" (click)="onSelected(pais)">{{ pais.formation_year }}</tr>
-        <tr class="table-primary text-dark" (click)="onSelected(pais)">{{ pais.capital }}</tr>
+    <tbody>
+        <tr *ngFor="let pais of paises" class="table-primary text-dark">{{ pais.id }}
+            <td (click)="onSelected(pais)">{{ pais.id }}</td>
+            <td (click)="onSelected(pais)">{{ pais.name }}</td>
+            <td (click)="onSelected(pais)">{{ pais.formation_year }}</td>
+            <td (click)="onSelected(pais)">{{ pais.capital }}</td>
+        </tr>
     </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="4">País más antiguo:</td>
+        </tr>
+    </tfoot>
 </table>
